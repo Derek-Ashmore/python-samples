@@ -26,3 +26,15 @@ def test_writeDump():
     outFile.close()
 
     assert 'Hi There' == content
+
+def test_execute():
+    tFile = tempfile.NamedTemporaryFile()
+    tFileName = tFile.name
+    tFile.close()
+
+    try:
+        dump_simulator.execute(size='1', out=tFileName)
+    except Exception as ex:
+        print(ex)
+        #message = ex.args
+        #assert 'Hi There' == message
